@@ -1,14 +1,16 @@
 apply plugin: 'nebula.provided-base'
 
 dependencies {
-    compile('org.apache.zookeeper:zookeeper:3.4.5') {
-        exclude group: 'com.sun.jmx', module: 'jmxri'
-        exclude group: 'com.sun.jdmk', module: 'jmxtools'
-        exclude group: 'javax.jms', module: 'jms'
+    // compile('org.apache.zookeeper:zookeeper:3.4.5') {
+    //    exclude group: 'com.sun.jmx', module: 'jmxri'
+    //    exclude group: 'com.sun.jdmk', module: 'jmxtools'
+    //    exclude group: 'javax.jms', module: 'jms'
 
         // JLine pulls this in as a compile dependency, they have fixed it in future versions
-        exclude group: 'junit', module: 'junit'
-    }
+    //    exclude group: 'junit', module: 'junit'
+    //}
+
+    compile files('libs/zookeeper-3.4.14.jar') 
     compile "org.apache.curator:curator-framework:${curatorVersion}"
     compile "org.apache.curator:curator-recipes:${curatorVersion}"
     compile "com.netflix.servo:servo-core:${servoVersion}"
